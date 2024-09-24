@@ -4,5 +4,4 @@ obj/
 *.a
 *.swp
 .dist/
-so_long
 minilibx-linux
