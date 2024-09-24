@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:28:17 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/24 12:41:31 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/09/24 15:56:35 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	main(void)
 {
-	t_win	test;
+	t_win	game;
 	char	*img_path;
 
-	test.x_pos = 300;
-	test.y_pos = 300;
-	img_path = "./textures/male-deer.xpm";
-	test.mlx = mlx_init();
-	test.win = mlx_new_window(test.mlx, 1000, 1000, "lol");
-	test.img = mlx_xpm_file_to_image(test.mlx, img_path, &test.img_width, &test.img_height);
-	mlx_put_image_to_window(test.mlx, test.win, test.img, test.x_pos, test.y_pos);
-	mlx_hook(test.win, DestroyNotify, NoEventMask, ft_close, &test);
-	mlx_hook(test.win, KeyPress, KeyPressMask, ft_keycode, &test);
-	mlx_loop(test.mlx);
+	game.x_pos = 300;
+	game.y_pos = 300;
+	img_path = "./textures/Steve_front.xpm";
+	game.mlx = mlx_init();
+	game.win = mlx_new_window(game.mlx, 1000, 1000, "lol");
+	game.img = mlx_xpm_file_to_image(game.mlx, img_path, &game.img_width, &game.img_height);
+	mlx_put_image_to_window(game.mlx, game.win, game.img, game.x_pos, game.y_pos);
+	mlx_hook(game.win, DestroyNotify, NoEventMask, ft_close, &game);
+	mlx_hook(game.win, KeyPress, KeyPressMask, ft_keycode, &game);
+	mlx_loop(game.mlx);
 	return (0);
 }

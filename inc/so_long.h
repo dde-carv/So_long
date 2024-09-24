@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:00:02 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/24 11:49:54 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/09/24 15:56:29 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct	s_win
 	int		y_pos;
 }				t_win;
 
-int	ft_close(t_win *test);
-int	ft_keycode(int keycode, t_win *test);
+int	ft_close(t_win *game);
+int	ft_keycode(int keycode, t_win *game);
 
 #endif

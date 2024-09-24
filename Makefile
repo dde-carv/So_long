@@ -6,7 +6,7 @@
 #    By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/17 13:39:50 by dde-carv          #+#    #+#              #
-#    Updated: 2024/09/24 11:26:35 by dde-carv         ###   ########.fr        #
+#    Updated: 2024/09/24 15:47:26 by dde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ MLXFLAGS	=	-Lminilibx-linux -Imlx_linux -lXext -lX11 -lm -lz
 RM	=	@rm -f
 
 SO_LONG_DIR	=	$(SRC_DIR)so_long/main.c \
-				$(SRC_DIR)so_long/so_long_utils.c
+				$(SRC_DIR)so_long/so_long_utils.c \
+				$(SRC_DIR)player_mv/movement.c
 
 SRCS	=	$(SO_LONG_DIR)
 
