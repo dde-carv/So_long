@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dde-carv <dde-carv@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:00:02 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/25 16:44:51 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/09/26 21:15:20 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ typedef struct	s_win
 	void	*img_player;
 	void	*img_colect;
 	void	*img_exit;
+	int		n_c;
+	int		n_e;
+	int		n_p;
 	int		map_width;
 	int		map_height;
 	int		img_width;
