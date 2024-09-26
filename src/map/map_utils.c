@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:41:19 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/26 17:07:23 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/09/26 17:16:06 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,11 @@ static int	map_rectangle(char **map)
 	return(1);
 }
 
+static int	is_wall(char **wall)
+{
+	int	len;
+	int	len;
+	int	count;
 
+	
+}
