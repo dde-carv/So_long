@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:18:04 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/27 15:23:24 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/09/27 16:04:13 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	init_game(t_win *game)
 	game->moves = 0;
 	game->finish = 0;
 	init_img(game);
-	draw_map(game);
+	draw_game(game);
 }

@@ -6,7 +6,7 @@
 #    By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/17 13:39:50 by dde-carv          #+#    #+#              #
-#    Updated: 2024/09/27 15:11:32 by dde-carv         ###   ########.fr        #
+#    Updated: 2024/09/27 16:29:40 by dde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ RM	=	@rm -f
 
 SO_LONG_DIR	=	$(SRC_DIR)main_sl/main.c \
 				$(SRC_DIR)so_long_utils/init.c \
+				$(SRC_DIR)so_long_utils/draw.c \
 				$(SRC_DIR)map_utils/map_read.c \
 				$(SRC_DIR)map_utils/map_utils.c \
 				#$(SRC_DIR)so_long_utils/movement.c

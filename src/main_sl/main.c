@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:28:17 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/27 15:23:12 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/09/27 16:30:03 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		if (check_argv(argv[1]) && check_map(&game))
 		{
 			init_game(&game);
-			gameplay(&game);
+			//gameplay(&game);
 			mlx_loop(game.mlx);
 		}
 		else
