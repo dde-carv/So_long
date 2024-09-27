@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dde-carv <dde-carv@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:00:02 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/26 21:15:20 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/09/27 14:56:55 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@ typedef struct	s_win
 {
 	void	*mlx;
 	void	*win;
-	char	**map;
 	void	*img_floor;
 	void	*img_wall;
 	void	*img_player;
 	void	*img_colect;
 	void	*img_exit;
+	char	**map;
 	int		n_c;
 	int		n_e;
 	int		n_p;
+	int		moves;
+	int		finish;
 	int		map_width;
 	int		map_height;
 	int		img_width;
@@ -43,7 +45,10 @@ typedef struct	s_win
 	int		y_pos;
 }				t_win;
 
-int	ft_close(t_win *game);
-int	ft_keycode(int keycode, t_win *game);
+int		ft_close(t_win *game);
+int		check_map(t_win *game);
+int		ft_keycode(int keycode, t_win *game);
+char	**map_read(char *path);
+void	init_game(t_win *game);
 
 #endif

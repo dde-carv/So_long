@@ -6,26 +6,49 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:28:17 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/25 17:31:35 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/09/27 15:23:12 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-int	main(void)
+static int	check_argv(char	*argv)
+{
+	int	len;
+
+	if(!argv)
+		return (0);
+	len = ft_strlen(argv) - 1;
+	if (argv[len] == 'r' && argv[len - 1] == 'e' && argv[len - 2] == 'b' && argv[len - 3] == '.')
+		return (1);
+	return (0);
+}
+
+int	main(int argc, char **argv)
 {
 	t_win	game;
-	char	*img_path;
 
-	game.x_pos = 300;
-	game.y_pos = 300;
-	img_path = "./textures/Steve_front.xpm";
-	game.mlx = mlx_init();
-	game.win = mlx_new_window(game.mlx, 1000, 1000, "lol");
-	game.img_player = mlx_xpm_file_to_image(game.mlx, img_path, &game.img_width, &game.img_height);
-	mlx_put_image_to_window(game.mlx, game.win, game.img_player, game.x_pos, game.y_pos);
-	mlx_hook(game.win, DestroyNotify, NoEventMask, ft_close, &game);
-	mlx_hook(game.win, KeyPress, KeyPressMask, ft_keycode, &game);
-	mlx_loop(game.mlx);
+	if (argc == 2)
+	{
+		game.map = map_read(argv[1]);
+		if (check_argv(argv[1]) && check_map(&game))
+		{
+			init_game(&game);
+			gameplay(&game);
+			mlx_loop(game.mlx);
+		}
+		else
+		{
+			if(game.map)
+				free(game.map);
+			ft_printf("Error\nInvalid map!\n");
+			exit(1);
+		}
+	}
+	else
+	{
+		ft_printf("Error\nBad syntax!\n");
+		exit(1);
+	}
 	return (0);
 }

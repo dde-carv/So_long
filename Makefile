@@ -6,7 +6,7 @@
 #    By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/17 13:39:50 by dde-carv          #+#    #+#              #
-#    Updated: 2024/09/24 16:17:40 by dde-carv         ###   ########.fr        #
+#    Updated: 2024/09/27 15:11:32 by dde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,11 @@ CFLAGS	=	-Wall -Werror -Wextra
 MLXFLAGS	=	-Lminilibx-linux -Imlx_linux -lXext -lX11 -lm -lz
 RM	=	@rm -f
 
-SO_LONG_DIR	=	$(SRC_DIR)so_long_init/main.c \
-				$(SRC_DIR)so_long_init/so_long_utils.c \
-				$(SRC_DIR)player_mv/movement.c
+SO_LONG_DIR	=	$(SRC_DIR)main_sl/main.c \
+				$(SRC_DIR)so_long_utils/init.c \
+				$(SRC_DIR)map_utils/map_read.c \
+				$(SRC_DIR)map_utils/map_utils.c \
+				#$(SRC_DIR)so_long_utils/movement.c
 
 SRCS	=	$(SO_LONG_DIR)
 
