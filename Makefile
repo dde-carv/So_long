@@ -6,7 +6,7 @@
 #    By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/17 13:39:50 by dde-carv          #+#    #+#              #
-#    Updated: 2024/09/27 16:29:40 by dde-carv         ###   ########.fr        #
+#    Updated: 2024/09/30 11:12:23 by dde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_DIR	=	obj/
 
 CC	=	@cc
 CFLAGS	=	-Wall -Werror -Wextra
-MLXFLAGS	=	-Lminilibx-linux -Imlx_linux -lXext -lX11 -lm -lz
+MLXFLAGS	=	-Iminilibx-linux -lXext -lX11 -lm -lz #-Lminilibx-linux -Imlx_linux -lXext -lX11 -lm -lz
 RM	=	@rm -f
 
 SO_LONG_DIR	=	$(SRC_DIR)main_sl/main.c \
@@ -42,7 +42,7 @@ $(MLX):
 
 $(NAME):	$(OBJS) $(LIBFT) $(MLX)
 		@echo "Make .o and so_long."
-		@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLXFLAGS) $(MLX) -o $(NAME)
+		@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) $(MLXFLAGS) -o $(NAME)
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 		@mkdir -p $(@D)
