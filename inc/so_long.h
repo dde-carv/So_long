@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:00:02 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/27 16:27:51 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/09/30 17:36:47 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,14 @@ typedef struct	s_win
 	int		y_pos;
 }				t_win;
 
-int		ft_close(t_win *game);
 int		draw_game(t_win *game);
 int		check_map(t_win *game);
-int		ft_keycode(int keycode, t_win *game);
 char	**map_read(char *path);
 void	init_game(t_win *game);
+void	gameplay(t_win *game);
+void	w_key(t_win *game);
+void	s_key(t_win *game);
+void	a_key(t_win *game);
+void	d_key(t_win *game);
 
 #endif
