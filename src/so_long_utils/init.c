@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:18:04 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/01 15:53:38 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:28:59 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	get_win_size(t_win *game)
 
 	game->map_width = ft_strlen(game->map[0]) * 33;
 	y = 0;
-	while (game->map[y] != NULL)
+	while (game->map[y])
 		y++;
 	game->map_height = y * 33;
 }

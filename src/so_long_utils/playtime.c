@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:24:30 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/01 15:02:12 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:32:31 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_map(char **map)
 	int	len;
 
 	len = 0;
-	while (map[len] != NULL)
+	while (map[len])
 	{
 		free(map[len]);
 		len++;
@@ -34,6 +34,7 @@ int	ft_close(t_win *game)
 	mlx_destroy_image(game->mlx, game->img_floor);
 	mlx_destroy_image(game->mlx, game->img_exit);
 	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	exit(0);
 	return (0);
