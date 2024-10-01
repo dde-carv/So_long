@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:40:16 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/30 17:42:43 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/01 12:11:02 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	w_key(t_win *game)
 		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_pos + 1][game->x_pos] = '0';
 		game->finish = 1;
-		draw_game(game);
+		ft_close(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->y_pos += 1;
@@ -56,7 +56,7 @@ void	s_key(t_win *game)
 		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_pos - 1][game->x_pos] = '0';
 		game->finish = 1;
-		draw_game(game);
+		ft_close(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->y_pos -= 1;
@@ -79,7 +79,7 @@ void	a_key(t_win *game)
 		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_pos][game->x_pos + 1] = '0';
 		game->finish = 1;
-		draw_game(game);
+		ft_close(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->x_pos += 1;
@@ -103,6 +103,7 @@ void	d_key(t_win *game)
 		game->map[game->y_pos][game->x_pos - 1] = '0';
 		game->finish = 1;
 		draw_game(game);
+		ft_close(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->x_pos -= 1;

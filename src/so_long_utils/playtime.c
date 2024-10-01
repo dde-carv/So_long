@@ -6,17 +6,28 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:24:30 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/30 17:41:09 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:02:12 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-
-
-static int	ft_close(t_win *game)
+void	free_map(char **map)
 {
-	free(game->map);
+	int	len;
+
+	len = 0;
+	while (map[len] != NULL)
+	{
+		free(map[len]);
+		len++;
+	}
+	free(map);
+}
+
+int	ft_close(t_win *game)
+{
+	free_map(game->map);
 	mlx_destroy_image(game->mlx, game->img_colect);
 	mlx_destroy_image(game->mlx, game->img_player);
 	mlx_destroy_image(game->mlx, game->img_wall);
@@ -50,8 +61,6 @@ static void	events(int keycode, t_win *game)
 		game->y_pos += 1;
 		s_key(game);
 	}
-	game->moves++;
-	ft_printf("%d\n", game->moves);
 }
 
 static int	ft_keycode(int keycode, t_win *game)
@@ -59,7 +68,11 @@ static int	ft_keycode(int keycode, t_win *game)
 	if (keycode == XK_Escape)
 		ft_close(game);
 	else if(!game->finish)
+	{
 		events(keycode, game);
+		game->moves++;
+		ft_printf("%d\n", game->moves);
+	}
 	return (0);
 }
 
