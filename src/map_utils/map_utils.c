@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:41:19 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/09/27 15:10:41 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:49:33 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	check_rectangle(char **map)
 	len = 1;
 	if(!map)
 		return (0);
-	while (map[len] != NULL)
+	while (map[len])
 	{
 		if (ft_strlen(map[len]) != ft_strlen(map[0]))
 			return (0);
@@ -35,7 +35,7 @@ static int	check_close(char **map)
 
 	y = 0;
 	x = 0;
-	while (map[y] != NULL)
+	while (map[y])
 		y++;
 	while (map[0][x] != '\0' || map[y - 1][x] != '\0')
 	{
@@ -45,7 +45,7 @@ static int	check_close(char **map)
 	}
 	y = 1;
 	x = ft_strlen(map[y]);
-	while (map[y] != NULL)
+	while (map[y])
 	{
 		if (map[y][0] != '1' || map[y][x - 1] != '1')
 			return (0);
@@ -63,7 +63,7 @@ static int	check_pce(t_win *game)
 	game->n_e = 0;
 	game->n_p = 0;
 	y = 0;
-	while (game->map[y] != NULL)
+	while (game->map[y])
 	{
 		x = 0;
 		while (game->map[y][x] != '\0')
@@ -89,7 +89,7 @@ static int	check_valid(char **map)
 	int	x;
 
 	y = 0;
-	while (map[y] != NULL)
+	while (map[y])
 	{
 		x = 0;
 		while (map[y][x] != '\0')
