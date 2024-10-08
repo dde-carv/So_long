@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:40:16 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/01 15:51:12 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/08 11:55:53 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,21 @@ void	w_key(t_win *game)
 	player_img_update('w', game);
 	if (game->map[game->y_pos][game->x_pos] == 'E' && game->n_c == 0)
 	{
-		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_pos + 1][game->x_pos] = '0';
 		game->finish = 1;
+		ft_printf("You win!! :)\n");
 		ft_close(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->y_pos += 1;
 	else
 	{
-		mlx_clear_window(game->mlx, game->win);
 		if (game->map[game->y_pos][game->x_pos] == 'C')
 			game->n_c -= 1;
 		game->map[game->y_pos][game->x_pos] = 'P';
 		game->map[game->y_pos + 1][game->x_pos] = '0';
+		game->moves++;
+		ft_printf("%d\n", game->moves);
 		draw_game(game);
 	}
 }
@@ -53,20 +54,21 @@ void	s_key(t_win *game)
 	player_img_update('s', game);
 	if (game->map[game->y_pos][game->x_pos] == 'E' && game->n_c == 0)
 	{
-		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_pos - 1][game->x_pos] = '0';
 		game->finish = 1;
+		ft_printf("You win!! :)\n");
 		ft_close(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->y_pos -= 1;
 	else
 	{
-		mlx_clear_window(game->mlx, game->win);
 		if (game->map[game->y_pos][game->x_pos] == 'C')
 			game->n_c -= 1;
 		game->map[game->y_pos][game->x_pos] = 'P';
 		game->map[game->y_pos - 1][game->x_pos] = '0';
+		game->moves++;
+		ft_printf("%d\n", game->moves);
 		draw_game(game);
 	}
 }
@@ -76,20 +78,21 @@ void	a_key(t_win *game)
 	player_img_update('a', game);
 	if (game->map[game->y_pos][game->x_pos] == 'E' && game->n_c == 0)
 	{
-		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_pos][game->x_pos + 1] = '0';
 		game->finish = 1;
+		ft_printf("You win!! :)\n");
 		ft_close(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->x_pos += 1;
 	else
 	{
-		mlx_clear_window(game->mlx, game->win);
 		if (game->map[game->y_pos][game->x_pos] == 'C')
 			game->n_c -= 1;
 		game->map[game->y_pos][game->x_pos] = 'P';
 		game->map[game->y_pos][game->x_pos + 1] = '0';
+		game->moves++;
+		ft_printf("%d\n", game->moves);
 		draw_game(game);
 	}
 }
@@ -99,21 +102,21 @@ void	d_key(t_win *game)
 	player_img_update('d', game);
 	if (game->map[game->y_pos][game->x_pos] == 'E' && game->n_c == 0)
 	{
-		mlx_clear_window(game->mlx, game->win);
 		game->map[game->y_pos][game->x_pos - 1] = '0';
 		game->finish = 1;
-		draw_game(game);
+		ft_printf("You win!! :)\n");
 		ft_close(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->x_pos -= 1;
 	else
 	{
-		mlx_clear_window(game->mlx, game->win);
 		if (game->map[game->y_pos][game->x_pos] == 'C')
 			game->n_c -= 1;
 		game->map[game->y_pos][game->x_pos] = 'P';
 		game->map[game->y_pos][game->x_pos - 1] = '0';
+		game->moves++;
+		ft_printf("%d\n", game->moves);
 		draw_game(game);
 	}
 }

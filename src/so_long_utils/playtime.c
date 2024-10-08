@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:24:30 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/01 17:32:31 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/08 11:42:53 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,15 @@ static void	events(int keycode, t_win *game)
 static int	ft_keycode(int keycode, t_win *game)
 {
 	if (keycode == XK_Escape)
+	{
+		ft_printf("You din't finish the game :(\n");
 		ft_close(game);
+	}
 	else if(!game->finish)
 	{
 		events(keycode, game);
-		game->moves++;
-		ft_printf("%d\n", game->moves);
+		//game->moves++;
+		//ft_printf("%d\n", game->moves);
 	}
 	return (0);
 }
