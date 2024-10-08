@@ -6,7 +6,7 @@
 #    By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/17 13:39:50 by dde-carv          #+#    #+#              #
-#    Updated: 2024/09/30 17:32:29 by dde-carv         ###   ########.fr        #
+#    Updated: 2024/10/08 12:37:25 by dde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC_DIR	=	src/
 OBJ_DIR	=	obj/
 
 CC	=	@cc
-CFLAGS	=	-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra -g
 MLXFLAGS	=	-Iminilibx-linux -lXext -lX11 -lm -lz #-Lminilibx-linux -Imlx_linux -lXext -lX11 -lm -lz
 RM	=	@rm -f
 

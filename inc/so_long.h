@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:00:02 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/01 12:08:09 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/08 12:42:29 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ void	w_key(t_win *game);
 void	s_key(t_win *game);
 void	a_key(t_win *game);
 void	d_key(t_win *game);
+void	free_map(char **map);
 
 #endif
