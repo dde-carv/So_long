@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:40:16 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/08 11:55:53 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/10 22:46:13 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static void	player_img_update(char key , t_win *game)
 {
 	mlx_destroy_image(game->mlx, game->img_player);
 	if (key == 'w')
-		game->img_player = mlx_xpm_file_to_image(game->mlx, "textures/Steve_b.xpm", &game->img_width, &game->img_height);
+		game->img_player = mlx_xpm_file_to_image(game->mlx, "textures/Steve_B.xpm", &game->img_width, &game->img_height);
 	else if (key == 's')
-		game->img_player = mlx_xpm_file_to_image(game->mlx, "textures/Steve_f.xpm", &game->img_width, &game->img_height);
+		game->img_player = mlx_xpm_file_to_image(game->mlx, "textures/Steve_F.xpm", &game->img_width, &game->img_height);
 	else if (key == 'a')
 		game->img_player = mlx_xpm_file_to_image(game->mlx, "textures/Steve_L.xpm", &game->img_width, &game->img_height);
 	else if (key == 'd')

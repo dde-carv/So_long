@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:18:04 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/09 13:46:56 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/10 22:49:31 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ static void	init_img(t_win *game)
 {
 	game->img_floor = mlx_xpm_file_to_image(game->mlx, "textures/Grass.xpm", &game->img_width, &game->img_height);
 	game->img_wall = mlx_xpm_file_to_image(game->mlx, "textures/Bedrock.xpm", &game->img_width, &game->img_height);
-	game->img_player = mlx_xpm_file_to_image(game->mlx, "textures/Steve_f.xpm", &game->img_width, &game->img_height);
+	game->img_player = mlx_xpm_file_to_image(game->mlx, "textures/Steve_F.xpm", &game->img_width, &game->img_height);
 	game->img_colect = mlx_xpm_file_to_image(game->mlx, "textures/Diamond.xpm", &game->img_width, &game->img_height);
-	game->img_exit = mlx_xpm_file_to_image(game->mlx, "textures/Chest_close.xpm", &game->img_width, &game->img_height);
+	game->img_exit = mlx_xpm_file_to_image(game->mlx, "textures/Chest_closed.xpm", &game->img_width, &game->img_height);
 }
 
 static void	get_win_size(t_win *game)
 {
 	int	y;
 
-	game->map_width = ft_strlen(game->map[0]) * 33;
+	game->map_width = ft_strlen(game->map[0]) * 56;
 	y = 0;
 	while (game->map[y])
 		y++;
-	game->map_height = y * 33;
+	game->map_height = y * 56;
 }
 
 void	init_game(t_win *game)
