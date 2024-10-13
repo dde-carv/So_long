@@ -6,39 +6,11 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:24:30 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/10 22:47:47 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/13 12:25:30 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
-
-void	free_map(char **map)
-{
-	int	len;
-
-	len = 0;
-	while (map[len])
-	{
-		free(map[len]);
-		len++;
-	}
-	free(map);
-}
-
-int	ft_close(t_win *game)
-{
-	free_map(game->map);
-	mlx_destroy_image(game->mlx, game->img_colect);
-	mlx_destroy_image(game->mlx, game->img_player);
-	mlx_destroy_image(game->mlx, game->img_wall);
-	mlx_destroy_image(game->mlx, game->img_floor);
-	mlx_destroy_image(game->mlx, game->img_exit);
-	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
-	exit(0);
-	return (0);
-}
 
 static void	events(int keycode, t_win *game)
 {

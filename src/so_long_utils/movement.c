@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:40:16 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/10 22:46:13 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/13 12:35:09 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ void	w_key(t_win *game)
 	{
 		game->map[game->y_pos + 1][game->x_pos] = '0';
 		game->finish = 1;
-		ft_printf("You win!! :)\n");
-		ft_close(game);
+		print_win(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->y_pos += 1;
@@ -56,8 +55,7 @@ void	s_key(t_win *game)
 	{
 		game->map[game->y_pos - 1][game->x_pos] = '0';
 		game->finish = 1;
-		ft_printf("You win!! :)\n");
-		ft_close(game);
+		print_win(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->y_pos -= 1;
@@ -80,8 +78,7 @@ void	a_key(t_win *game)
 	{
 		game->map[game->y_pos][game->x_pos + 1] = '0';
 		game->finish = 1;
-		ft_printf("You win!! :)\n");
-		ft_close(game);
+		print_win(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->x_pos += 1;
@@ -104,8 +101,7 @@ void	d_key(t_win *game)
 	{
 		game->map[game->y_pos][game->x_pos - 1] = '0';
 		game->finish = 1;
-		ft_printf("You win!! :)\n");
-		ft_close(game);
+		print_win(game);
 	}
 	else if (game->map[game->y_pos][game->x_pos] == '1' || game->map[game->y_pos][game->x_pos] == 'E')
 		game->x_pos -= 1;

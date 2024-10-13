@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:28:17 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/08 12:41:44 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/13 14:20:07 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		game.map = map_read(argv[1]);
+		game.mapcopy = map_read(argv[1]);
 		if (check_argv(argv[1]) && check_map(&game))
 		{
 			init_game(&game);
@@ -40,15 +41,14 @@ int	main(int argc, char **argv)
 		else
 		{
 			if(game.map)
+			{
 				free_map(game.map);
-			ft_printf("Error\nInvalid map!\n");
-			exit(1);
+				free_map(game.mapcopy);
+			}
+			print_error("Invalid map!");
 		}
 	}
 	else
-	{
-		ft_printf("Error\nBad syntax!\n");
-		exit(1);
-	}
+		print_error("Invalid arguments!");
 	return (0);
 }
