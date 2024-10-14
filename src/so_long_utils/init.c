@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:18:04 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/13 14:01:36 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:29:53 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	init_img(t_win *game)
 	game->img_exit = mlx_xpm_file_to_image(game->mlx, "textures/Chest_closed.xpm", &game->img_width, &game->img_height);
 }
 
-static void	get_win_size(t_win *game)
+void	get_win_size(t_win *game)
 {
 	int	y;
 
