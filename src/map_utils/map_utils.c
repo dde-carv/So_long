@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:41:19 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/13 12:46:18 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/14 10:23:32 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ static int	check_valid(char **map)
 
 int	check_map(t_win *game)
 {
-	if (check_rectangle(game->map) && check_close(game->map) && check_pce(game) && check_valid(game->map))
+	if (check_rectangle(game->map) && check_close(game->map) && check_pce(game) && check_valid(game->map) && check_win(game))
 		return (1);
 	return (0);
 }

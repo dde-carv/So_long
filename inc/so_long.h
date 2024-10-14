@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:00:02 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/13 14:12:52 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:53:27 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_win
 int		draw_game(t_win *game);
 int		check_map(t_win *game);
 int		ft_close(t_win *game);
+int		check_win(t_win *game);
 char	**map_read(char *path);
 void	init_game(t_win *game);
 void	gameplay(t_win *game);

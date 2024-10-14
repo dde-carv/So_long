@@ -6,7 +6,7 @@
 #    By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/17 13:39:50 by dde-carv          #+#    #+#              #
-#    Updated: 2024/10/13 12:38:16 by dde-carv         ###   ########.fr        #
+#    Updated: 2024/10/13 16:53:00 by dde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SO_LONG_DIR	=	$(SRC_DIR)main_sl/main.c \
 				$(SRC_DIR)so_long_utils/movement.c \
 				$(SRC_DIR)so_long_utils/playtime.c \
 				$(SRC_DIR)so_long_utils/exit.c \
+				$(SRC_DIR)map_utils/flood_fill.c \
 
 SRCS	=	$(SO_LONG_DIR)
 
