@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:12:10 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/15 14:53:49 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/15 16:42:28 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ static void	flood_fill(t_win *game, int y, int x)
 {
 	if (y < 0 || x < 0 || y >= game->map_height || x >= game->map_width \
 		|| game->mapcopy[y][x] == '1' || game->mapcopy[y][x] == 'X')
+		return ;
+	if ((game->mapcopy[y + 1][x] == 'E') && (game->mapcopy[y - 1][x] == '1') \
+		&& (game->mapcopy[y][x + 1] == '1') && (game->mapcopy[y][x - 1] == '1'))
+		return ;
+	if ((game->mapcopy[y + 1][x] == '1') && (game->mapcopy[y - 1][x] == 'E') \
+		&& (game->mapcopy[y][x + 1] == '1') && (game->mapcopy[y][x - 1] == '1'))
+		return ;
+	if ((game->mapcopy[y + 1][x] == '1') && (game->mapcopy[y - 1][x] == '1') \
+		&& (game->mapcopy[y][x + 1] == 'E') && (game->mapcopy[y][x - 1] == '1'))
+		return ;
+	if ((game->mapcopy[y + 1][x] == 'E') && (game->mapcopy[y - 1][x] == '1') \
+		&& (game->mapcopy[y][x + 1] == '1') && (game->mapcopy[y][x - 1] == 'E'))
 		return ;
 	if (game->mapcopy[y][x] == 'E' || game->mapcopy[y][x] == 'C')
 		game->mapcopy[y][x] = '0';
