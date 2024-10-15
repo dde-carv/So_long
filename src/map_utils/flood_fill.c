@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:12:10 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/14 17:24:57 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:53:49 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,9 @@
 
 static void	flood_fill(t_win *game, int y, int x)
 {
-	if (y < 0 || x < 0 || y >= game->map_height || x >= game->map_width
+	if (y < 0 || x < 0 || y >= game->map_height || x >= game->map_width \
 		|| game->mapcopy[y][x] == '1' || game->mapcopy[y][x] == 'X')
-		{
-			//ft_printf("map_height:%d\nmap_width:%d\ny:%d\nx:%d.\n", game->map_height, game->map_width, y, x);
-			return ;
-		}
-		//return ;
-	if (((game->mapcopy[y + 1][x] == 'E')|| (game->mapcopy[y - 1][x] == 'E'))
-		&& ((game->mapcopy[y][x + 1] == '1') || (game->mapcopy[y][x - 1] == '1')))
-		{
-			//ft_printf("map_height:%d\nmap_width:%d\ny:%d\nx:%d!\n", game->map_height, game->map_width, y, x);
-			return ;
-		}
-		//return ;
-	if (((game->mapcopy[y][x + 1] == 'E') || (game->mapcopy[y][x - 1] == 'E'))
-		&& ((game->mapcopy[y + 1][x] == '1') || (game->mapcopy[y - 1][x] == '1')))
-		{
-			//ft_printf("map_height:%d\nmap_width:%d\ny:%d\nx:%d?\n", game->map_height, game->map_width, y, x);
-			return ;
-		}
-		//return ;
+		return ;
 	if (game->mapcopy[y][x] == 'E' || game->mapcopy[y][x] == 'C')
 		game->mapcopy[y][x] = '0';
 	game->mapcopy[y][x] = 'X';
@@ -52,8 +34,8 @@ static void	ft_to_fill(t_win *game, int y, int x)
 
 static void	ft_pl_pos(t_win *game, int *pl_y, int *pl_x)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = 0;
 	while (game->mapcopy[y])
@@ -65,7 +47,7 @@ static void	ft_pl_pos(t_win *game, int *pl_y, int *pl_x)
 			{
 				*pl_y = y;
 				*pl_x = x;
-				break;
+				break ;
 			}
 			x++;
 		}
@@ -90,8 +72,8 @@ int	check_win(t_win *game)
 		can_col = 0;
 		while (game->mapcopy[can_row][can_col])
 		{
-			if (game->mapcopy[can_row][can_col] == 'C' ||
-			 game->mapcopy[can_row][can_col] == 'E')
+			if (game->mapcopy[can_row][can_col] == 'C' || \
+				game->mapcopy[can_row][can_col] == 'E')
 				return (0);
 			can_col++;
 		}

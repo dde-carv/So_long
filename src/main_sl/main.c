@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:28:17 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/14 16:47:08 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:49:23 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ static int	check_argv(char	*argv)
 {
 	int	len;
 
-	if(!argv)
+	if (!argv)
 		return (0);
 	len = ft_strlen(argv) - 1;
-	if (argv[len] == 'r' && argv[len - 1] == 'e' && argv[len - 2] == 'b' && argv[len - 3] == '.')
+	if (argv[len] == 'r' && argv[len - 1] == 'e' && argv[len - 2] == 'b' && \
+		argv[len - 3] == '.')
 		return (1);
 	return (0);
 }
@@ -39,16 +40,9 @@ int	main(int argc, char **argv)
 			mlx_loop(game.mlx);
 		}
 		else
-		{
-			if(game.map)
-			{
-				free_map(game.map);
-				free_map(game.mapcopy);
-			}
-			print_error("Invalid map!");
-		}
+			print_error("Invalid map.", &game);
 	}
 	else
-		print_error("Invalid arguments!");
+		ft_printf("Bad syntax:\n./so_long ./maps/<map>.ber.\n");
 	return (0);
 }

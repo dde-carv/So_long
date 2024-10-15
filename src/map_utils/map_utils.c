@@ -6,22 +6,24 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:41:19 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/14 16:34:12 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:58:23 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-static int	check_rectangle(char **map)
+static int	check_rectangle(t_win *game)
 {
 	int	len;
 
 	len = 1;
-	if(!map)
+	if (!game->map)
 		return (0);
-	while (map[len])
+	get_win_size(game);
+	while (game->map[len])
 	{
-		if (ft_strlen(map[len]) != ft_strlen(map[0]))
+		if ((ft_strlen(game->map[len]) != ft_strlen(game->map[0])) || \
+			(game->map_width == game->map_height))
 			return (0);
 		len++;
 	}
@@ -94,7 +96,8 @@ static int	check_valid(char **map)
 		x = 0;
 		while (map[y][x] != '\0')
 		{
-			if (map[y][x] != 'P' && map[y][x] != 'E' && map[y][x] != 'C' && map[y][x] != '0' && map[y][x] != '1')
+			if (map[y][x] != 'P' && map[y][x] != 'E' && map[y][x] != 'C' && \
+				map[y][x] != '0' && map[y][x] != '1')
 				return (0);
 			x++;
 		}
@@ -105,7 +108,18 @@ static int	check_valid(char **map)
 
 int	check_map(t_win *game)
 {
-	if (check_rectangle(game->map) && check_close(game->map) && check_pce(game) && check_valid(game->map) && check_win(game))
+	if (check_rectangle(game) && check_close(game->map) && check_pce(game) && \
+		check_valid(game->map) && check_win(game))
 		return (1);
+	else if (!check_rectangle(game))
+		print_error("Map is not rectangle.", game);
+	else if (!check_close(game->map))
+		print_error("Map is not closed.", game);
+	else if (!check_pce(game))
+		print_error("PCE not valid.", game);
+	else if (!check_valid(game->map))
+		print_error("Invalid map. Only P, C, E, 1, 0 allowed.", game);
+	else if (!check_win(game))
+		print_error("The map is not winable", game);
 	return (0);
 }

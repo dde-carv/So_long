@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 12:24:30 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/13 12:25:30 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:18:49 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ static int	ft_keycode(int keycode, t_win *game)
 		ft_printf("You din't finish the game :(\n");
 		ft_close(game);
 	}
-	else if(!game->finish)
+	else if (!game->finish)
 		events(keycode, game);
 	return (0);
 }
 
 void	gameplay(t_win *game)
 {
-	mlx_hook(game->win, 2, 1L<<0, ft_keycode, game);
-	mlx_hook(game->win, 17, 1L<<17, ft_close, game);
+	mlx_hook(game->win, 2, 1L << 0, ft_keycode, game);
+	mlx_hook(game->win, 17, 1L << 17, ft_close, game);
 }

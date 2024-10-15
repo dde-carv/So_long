@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:03:22 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/10 22:44:16 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:07:52 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	put_img(t_win *game, void *img, int x, int y)
 	mlx_put_image_to_window(game->mlx, game->win, img, x * 56, y * 56);
 }
 
-static void put_player(t_win *game, void *img, int x, int y)
+static void	put_player(t_win *game, void *img, int x, int y)
 {
 	game->x_pos = x;
 	game->y_pos = y;
@@ -29,15 +29,16 @@ static void	put_exit(t_win *game, int x, int y)
 	if (game->n_c == 0)
 	{
 		mlx_destroy_image(game->mlx, game->img_exit);
-		game->img_exit = mlx_xpm_file_to_image(game->mlx, "textures/Chest_open.xpm", &game->img_width, &game->img_height);
+		game->img_exit = mlx_xpm_file_to_image(game->mlx, \
+			"textures/Chest_open.xpm", &game->img_width, &game->img_height);
 	}
 	put_img(game, game->img_exit, x, y);
 }
 
 int	draw_game(t_win *game)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = 0;
 	while (game->map[y])

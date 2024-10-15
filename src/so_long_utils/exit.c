@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 12:24:06 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/14 10:45:33 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:08:11 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,13 @@ int	ft_close(t_win *game)
 	return (0);
 }
 
-void	print_error(char *str)
+void	print_error(char *str, t_win *game)
 {
+	if (game->map)
+	{
+		free_map(game->map);
+		free_map(game->mapcopy);
+	}
 	ft_printf("Error\n%s\n", str);
 	exit(1);
 }
