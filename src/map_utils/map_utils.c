@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:41:19 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/17 10:42:56 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:11:00 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ static int	check_rectangle(t_win *game)
 	get_win_size(game);
 	while (game->map[len])
 	{
-		if ((ft_strlen(game->map[len]) != ft_strlen(game->map[0])) || \
-			(game->map_width == game->map_height))
+		if (ft_strlen(game->map[len]) != ft_strlen(game->map[0]))
 			return (0);
 		len++;
 	}
