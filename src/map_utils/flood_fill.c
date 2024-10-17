@@ -6,45 +6,16 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:12:10 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/16 14:15:57 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:55:20 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-static int	check_path(t_win *game, int y, int x)
-{
-	if ((game->mapcopy[y + 1][x] == '0') && (game->mapcopy[y - 1][x] == '1') && \
-		(game->mapcopy[y][x + 1] == '1') && (game->mapcopy[y][x - 1] == '1'))
-		while ((game->mapcopy[y][x] == '0') && \
-		(game->mapcopy[y][x + 1] == '1') && (game->mapcopy[y][x - 1] == '1'))
-			y++;
-	if ((game->mapcopy[y + 1][x] == '1') && (game->mapcopy[y - 1][x] == '0') && \
-		(game->mapcopy[y][x + 1] == '1') && (game->mapcopy[y][x - 1] == '1'))
-		while (game->mapcopy[y][x] == '0' && \
-		( game->mapcopy[y][x + 1] == '1') && (game->mapcopy[y][x - 1] == '1'))
-			y--;
-	if ((game->mapcopy[y + 1][x] == '1') && (game->mapcopy[y - 1][x] == '1') && \
-		(game->mapcopy[y ][x + 1] == '0') && (game->mapcopy[y][x - 1] == '1'))
-		while (game->mapcopy[y][x] == '0' && \
-		( game->mapcopy[y + 1][x] == '1') && (game->mapcopy[y - 1][x] == '1'))
-			x++;
-	if ((game->mapcopy[y + 1][x] == '1') && (game->mapcopy[y - 1][x] == '1') && \
-		(game->mapcopy[y][x + 1] == '1') && (game->mapcopy[y][x - 1] == '0'))
-		while (game->mapcopy[y][x] == '0' && \
-		( game->mapcopy[y + 1][x] == '1') && (game->mapcopy[y - 1][x] == '1'))
-			x--;
-	if (game->mapcopy[y][x] == 'E')
-		return (0);
-	return (1);
-}
-
 static void	flood_fill(t_win *game, int y, int x)
 {
 	if (y < 0 || x < 0 || y >= game->map_height || x >= game->map_width \
 		|| game->mapcopy[y][x] == '1' || game->mapcopy[y][x] == 'X')
-		return ;
-	if (!check_path(game, y, x))
 		return ;
 	if (game->mapcopy[y][x] == 'E' || game->mapcopy[y][x] == 'C')
 		game->mapcopy[y][x] = '0';
@@ -90,19 +61,33 @@ int	check_win(t_win *game)
 	int	pl_y;
 	int	can_row;
 	int	can_col;
+	int	row = 0;
+	int	col = 0;
 
 	pl_x = 0;
 	pl_y = 0;
 	can_row = 0;
 	ft_pl_pos(game, &pl_y, &pl_x);
+	while (game->mapcopy[row++])
+	{
+		while (game->mapcopy[row][col++])
+		{
+			if (game->mapcopy[row][col] == 'E')
+			{
+				game->mapcopy[row][col] = '1';
+				break;
+			}
+		}
+	}
 	ft_to_fill(game, pl_y, pl_x);
+	game->mapcopy[row][col] = 'E';
 	while (game->mapcopy[can_row])
 	{
 		can_col = 0;
 		while (game->mapcopy[can_row][can_col])
 		{
-			if (game->mapcopy[can_row][can_col] == 'C' || \
-				game->mapcopy[can_row][can_col] == 'E')
+			if (game->mapcopy[can_row][can_col] == 'C'/*  || \
+				game->mapcopy[can_row][can_col] == 'E' */)
 				return (0);
 			can_col++;
 		}

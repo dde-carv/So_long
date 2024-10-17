@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:00:02 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/15 17:39:49 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/17 10:46:00 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdio.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
+
+# include <stdbool.h>
 
 typedef struct s_win
 {
@@ -45,6 +47,12 @@ typedef struct s_win
 	int		x_pos;
 	int		y_pos;
 }				t_win;
+
+typedef struct s_axis
+{
+	int	x;
+	int	y;
+}	t_axis;
 
 int		draw_game(t_win *game);
 int		check_map(t_win *game);
