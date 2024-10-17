@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:18:04 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/15 15:09:16 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:40:03 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,20 @@ void	get_win_size(t_win *game)
 {
 	int	y;
 
-	game->map_width = ft_strlen(game->map[0]) * 56;
+	game->mlx = mlx_init();
+	game->win_width = 0;
+	game->win_height = 0;
+	game->map_width = ft_strlen(game->map[0]) * 5;
 	y = 0;
 	while (game->map[y])
 		y++;
 	game->map_height = y * 56;
+	mlx_get_screen_size(game->mlx, &game->win_width, &game->win_height);
+	if (game->map_width > game->win_width || game->map_height > game->win_height)
+	{
+		//free(game->mlx);
+		print_error("Map is too big for the screen!", game);
+	}
 }
 
 void	init_game(t_win *game)

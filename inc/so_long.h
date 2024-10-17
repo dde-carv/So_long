@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:00:02 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/17 10:46:00 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:28:02 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_win
 	void	*img_exit;
 	char	**map;
 	char	**mapcopy;
+	int		n_vc;
 	int		n_c;
 	int		n_e;
 	int		n_p;
@@ -42,17 +43,13 @@ typedef struct s_win
 	int		finish;
 	int		map_width;
 	int		map_height;
+	int		win_width;
+	int		win_height;
 	int		img_width;
 	int		img_height;
 	int		x_pos;
 	int		y_pos;
 }				t_win;
-
-typedef struct s_axis
-{
-	int	x;
-	int	y;
-}	t_axis;
 
 int		draw_game(t_win *game);
 int		check_map(t_win *game);

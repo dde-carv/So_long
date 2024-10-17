@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:12:10 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/17 16:09:44 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/17 18:49:31 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@ static void	flood_fill(t_win *game, int y, int x, char visit)
 		return ;
 	if (game->mapcopy[y][x] == 'C')
 		game->mapcopy[y][x] = '0';
-	if ((game->mapcopy[y][x] == 'E' && (game->mapcopy[y + 1][x] == '0' || \
-		game->mapcopy[y - 1][x] == '0' || game->mapcopy[y][x + 1] == '0' || \
-		game->mapcopy[y][x - 1] == '0' || game->mapcopy[y + 1][x] == 'C' || \
-		game->mapcopy[y - 1][x] == 'C' || game->mapcopy[y][x + 1] == 'C' || \
-		game->mapcopy[y][x - 1] == 'C')))
+	if (game->mapcopy[y][x] == 'E')
+	{
+		game->mapcopy[y][x] = visit;
 		return ;
+	}
 	game->mapcopy[y][x] = visit;
 	flood_fill(game, y + 1, x, visit);
 	flood_fill(game, y - 1, x, visit);
@@ -56,31 +55,30 @@ static void	ft_pl_pos(t_win *game, int *pl_y, int *pl_x)
 	}
 }
 
-static int	verify_win(t_win *game)
+static void	check_colectible(t_win *game)
 {
-	int	can_row;
-	int	can_col;
-	can_row = 0;
+	int	y;
+	int	x;
 
-	while (game->mapcopy[can_row])
+	game->n_vc = 0;
+	y = 0;
+	while (game->mapcopy[y])
 	{
-		can_col = 0;
-		while (game->mapcopy[can_row][can_col])
+		x = 0;
+		while (game->mapcopy[y][x])
 		{
-			if (game->mapcopy[can_row][can_col] == 'C' || \
-				game->mapcopy[can_row][can_col] == 'E')
-				return (0);
-			can_col++;
+			if (game->mapcopy[y][x] == 'C')
+				game->n_vc++;
+			x++;
 		}
-		can_row++;
+		y++;
 	}
-	return (1);
 }
 
 static void	put_exit_wall(t_win *game, int *y, int *x)
 {
-	int col;
-	int row;
+	int	col;
+	int	row;
 
 	row = 0;
 	while (game->mapcopy[row])
@@ -110,14 +108,15 @@ int	check_win(t_win *game)
 
 	pl_x = 0;
 	pl_y = 0;
-	ft_pl_pos(game, &pl_y, &pl_x);
 	x = 0;
 	y = 0;
+	ft_pl_pos(game, &pl_y, &pl_x);
 	put_exit_wall(game, &y, &x);
 	flood_fill(game, pl_y, pl_x, 'X');
 	game->mapcopy[y][x] = 'E';
 	flood_fill(game, pl_y, pl_x, 'V');
-	if (!verify_win(game))
+	check_colectible(game);
+	if (game->n_vc != 0)
 		return (0);
 	return (1);
 }

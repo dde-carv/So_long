@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:29:06 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/15 17:53:29 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/17 18:13:06 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	verify_nl(char *line, char *map_temp, t_win *game)
 {
-
 	if (line && *line == '\n')
 	{
 		free(line);
