@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:28:17 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/15 17:48:40 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:03:01 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ int	main(int argc, char **argv)
 	ft_bzero(&game, sizeof(t_win));
 	if (argc == 2)
 	{
+		game.mlx = mlx_init();
 		game.map = map_read(argv[1], &game);
 		game.mapcopy = map_read(argv[1], &game);
+		mlx_get_screen_size(game.mlx, &game.win_width, &game.win_height);
 		if (check_argv(argv[1]) && check_map(&game))
 		{
 			init_game(&game);
