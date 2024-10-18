@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:18:04 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/18 16:27:23 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:46:41 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,21 @@ void	get_win_size(t_win *game)
 	while (game->map[y])
 		y++;
 	game->map_height = y * 64;
-	if (game->map_width > 1920 || game->map_height > 1080)
+	if (&game->map_width > game->win_width || &game->map_height > game->win_height)
+	{
+		ft_printf("Map Width:%d\nMap Height:%d\n", game->map_width, game->map_height);
+		ft_printf("Window Width:%d\nWindow Height:%d\n", game->win_width, game->win_height);
 		print_error("Map is too big for the screen.", game);
+	}
 }
 
 void	init_game(t_win *game)
 {
 	game->mlx = mlx_init();
+	mlx_get_screen_size(game->mlx, game->win_width, game->win_height);
+	ft_printf("Window Width:%d\nWindow Height:%d\n", game->win_width, game->win_height);
 	get_win_size(game);
+	ft_printf("Map Width:%d\nMap Height:%d\n", game->map_width, game->map_height);
 	game->win = mlx_new_window(game->mlx, game->map_width, \
 		game->map_height, "so_long");
 	game->moves = 0;

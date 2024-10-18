@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:00:02 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/18 11:56:32 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:46:14 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ typedef struct s_win
 	int		finish;
 	int		map_width;
 	int		map_height;
-	int		win_width;
-	int		win_height;
+	int		*win_width;
+	int		*win_height;
 	int		img_width;
 	int		img_height;
 	int		x_pos;
