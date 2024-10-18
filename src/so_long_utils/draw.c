@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:03:22 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/15 15:07:52 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:27:38 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	put_img(t_win *game, void *img, int x, int y)
 {
-	mlx_put_image_to_window(game->mlx, game->win, img, x * 56, y * 56);
+	mlx_put_image_to_window(game->mlx, game->win, img, x * 64, y * 64);
 }
 
 static void	put_player(t_win *game, void *img, int x, int y)
