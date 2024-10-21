@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:12:10 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/19 15:56:30 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/21 11:49:38 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	ft_pl_pos(t_win *game, int *pl_y, int *pl_x)
 	}
 }
 
-static void	check_CE(t_win *game)
+static void	check_ce(t_win *game)
 {
 	int	y;
 	int	x;
@@ -118,7 +118,7 @@ int	check_win(t_win *game)
 	flood_fill(game, pl_y, pl_x, 'X');
 	game->mapcopy[y][x] = 'E';
 	flood_fill(game, pl_y, pl_x, 'V');
-	check_CE(game);
+	check_ce(game);
 	if (game->n_vc != 0 || game->n_ve != 0)
 		return (0);
 	return (1);
