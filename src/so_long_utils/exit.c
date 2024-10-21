@@ -6,7 +6,7 @@
 /*   By: dde-carv <dde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 12:24:06 by dde-carv          #+#    #+#             */
-/*   Updated: 2024/10/18 17:12:18 by dde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/19 18:25:08 by dde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,13 @@ int	ft_close(t_win *game)
 
 void	print_error(char *str, t_win *game)
 {
-
+	if (game->map)
+	{
+		free_map(game->map);
+		free_map(game->mapcopy);
+		mlx_destroy_display(game->mlx);
+	}
+	free(game->mlx);
 	ft_printf("Error\n%s\n", str);
 	exit(1);
 }
