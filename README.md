@@ -4,6 +4,8 @@
 
 "So_long" is a minigame built in C, which involves navigating a game map to achieve specific objectives. The project demonstrates various aspects of game development, including map handling, game logic, and player interaction.
 
+[Watch the video](https://raw.githubusercontent.com/dde-carv/So_long/main/assets/So_long.mp4)
+
 ## Features
 
 - Map loading and validation
